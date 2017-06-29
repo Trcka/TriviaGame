@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>Trivia Time!</title>
+</head>
+<body>
+<h1> ITS TRIVIA TIME GUYS! </h1>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+	//i can append and remove all the material as time goes on
+	//make timer
+
+	// if right{
+	// 	mark right
+	// }if else time goes out && wrong ans clicked{
+	// 	mark wrong
+	// }
+
+	//make score card at the end
+
+	var queryURL ="https://opentdb.com/api.php?amount=10"
+
+	$.ajax({
+		url:queryURL,
+		method:+"GET"
+	}).done(function(responce) {
+		console.log(responce)
+	
+		//scoping problems, need to make it global, so pushing the reponce to the object.
+
+			var questions = {
+		question1:responce.results[0].question,
+		// question2:responce,
+		// question3:responce,
+		// question4:responce,
+		// question5:responce,
+		// question6:responce,
+		// question7:responce,
+		// question8:responce,
+		// question9:responce,
+		// question10:responce
+
+	};
+	console.log(questions.question1)
+
+
+
+	});
+	console.log(questions.question1)
+
+
+
+	
+	</script>
+
+</body>
+</html>
