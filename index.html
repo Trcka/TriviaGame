@@ -22,6 +22,18 @@
 
 	var queryURL ="https://opentdb.com/api.php?amount=10"
 
+		var question1="";
+		var question2="";
+		var question3="";
+		var question4="";
+		var question5="";
+		var question6="";
+		var question7="";
+		var question8="";
+		var question9="";
+		var question10="";
+
+
 	$.ajax({
 		url:queryURL,
 		method:+"GET"
@@ -30,27 +42,15 @@
 	
 		//scoping problems, need to make it global, so pushing the reponce to the object.
 
-			var questions = {
-		question1:responce.results[0].question,
-		// question2:responce,
-		// question3:responce,
-		// question4:responce,
-		// question5:responce,
-		// question6:responce,
-		// question7:responce,
-		// question8:responce,
-		// question9:responce,
-		// question10:responce
+		question1=responce.results[0].question
 
-	};
-	console.log(questions.question1)
+//need to add code here due to load times
 
+	console.log(question1)
 
+});
 
-	});
-	console.log(questions.question1)
-
-
+console.log(question1)
 
 	
 	</script>
