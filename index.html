@@ -1,132 +1,21 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css" rel="stylesheet" integrity="sha384-D9XILkoivXN+bcvB2kSOowkIvIcBbNdoDQvfBNsxYAIieZbx8/SI4NeUvrRGCpDi" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<meta charset="utf-8">
 	<title>Trivia Time!</title>
 
 </head>
 <body>
 <h1> IT'S TRIVIA TIME GUYS! You have 10 seconds to answer every question. </h1>
-<div id="score"></div>
-<div id="question"></div>
-<button id="ans1"></button>
-<button id="ans2"></button>
-<button id="ans3"></button>
-<button id="ans4"></button>
+<div class="pager" id="score"></div>
+<div class="pager" id="question"></div>
+<button class="pager" id="ans1"></button>
+<button class="pager" id="ans2"></button>
+<button class="pager" id="ans3"></button>
+<button class="pager" id="ans4"></button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script>
-	//i can append and remove all the material as time goes on
-	//make timer
-
-	// if right{
-	// 	mark right
-	// }if else time goes out && wrong ans clicked{
-	// 	mark wrong
-	// }
-
-	//make score card at the end
-
-
-	var queryURL ="https://opentdb.com/api.php?amount=10&type=multiple"
-
-		var questions=[];
-		var answerRight;
-
-
-
-
-
-
-
-
-	$.ajax({
-		url:queryURL,
-		method:+"GET"
-	}).done(function(responce) {
-
-
-		//scoping problems, need to make it global, so pushing the reponce to the object.
-
-		questions = responce.results
-
-
-//need to add code here due to load times
-
-
-
-
-var i=0;
-var a = 0;
-var b = 0;
-function renderQuestion(){
-
-	$("#question").html("<p id='question'>"+questions[0+i].question+"</p>");
-	$("#ans1").html(questions[0+i].correct_answer);
-	$("#ans2").html(questions[0+i].incorrect_answers[0]);
-	$("#ans3").html(questions[0+i].incorrect_answers[1]);
-	$("#ans4").html(questions[0+i].incorrect_answers[2]);
-	setTimeout(function(){
-		renderQuestion()
-
-		i++
-		b++
-
-
-		if(i===10){
-			$("#score").append("<h1>You got "+a+" Right!</h1>")
-			$("#score").append("<h1> You got "+b+" Wrong.</h1>")
-			$("#question").hide()
-			$("button").hide()
-			clearTimeout();
-		}
-	},10000)
-	};
-
-
-
-
-renderQuestion();
-$("button").click(function(event){
-
-i++
-
-
-	if(i===10){
-		$("#score").append("<h1>You got "+a+" Right!</h1>")
-		$("#score").append("<h1> You got "+b+" Wrong.</h1>")
-		$("#question").hide()
-		$("button").hide()
-
-	}else if($(event.currentTarget).attr('id')==="ans1"){
-
-
-		a++
-		renderQuestion()
-
-	}else {
-
-		b++
-		renderQuestion()
-	};
-
-
-
-
-
-
-
-
-
-
-
-});
-
-
-
-
-});
-
-	</script>
-
+<script src="assets/javascript/app.js" charset="utf-8"></script>
 </body>
 </html>
